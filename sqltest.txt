@@ -1,0 +1,33 @@
+1. select * from actor; 
+2. select * from actor where first_name = "John"
+3. select * from actor where last_name = "Neeson"
+4. select * from actor where (actor_id % 10) = 0;
+5. select description from film where film_id = 100;
+6. select title from film where rating = "R";
+7. select title from film where rating != "R";
+8. select title, length from film order by length limit 10;
+9. select title from film; / select title from film order by length limit 10; (Odd phrasing of the question thus i put the two thing it may haave been asking for)
+10. select title, special_features from film where special_features = "Deleted Scenes";
+11. select distinct last_name from actor;
+12. select last_name from actor group by last_name having count(last_name) > 1;
+13. select film_actor.actor_id, actor.first_name, actor.last_name from film_actor inner join actor on film_actor.actor_id = actor.actor_id group by film_actor.actor_id order by count(*) desc limit 1;
+14. select film.title as available_copies from inventory inner join film on inventory.film_id = film.film_id where store_id = 1 and film.title = "Academy Dinosaur";
+15. select rental.return_date from rental inner join film on rental.inventory_id = film.film_id where film.title = "Academy Dinosaur";
+16. select avg(length) from film;
+17. select film_category.category_id, avg(length) as Length from film_category inner join film on film_category.film_id = film.film_id group by film_category.category_id; #works b  ut found the actual catagory names later in the project but this does technically show how many are in each catagory but you dont know the coralation of id to name
+18. select count(title) as robot_movies from film where description like "%robot%";
+19. select title from film order by length desc limit 1;
+20. select count(title) as tens_movies from film where release_year = 2010;
+21. select title from film_list where category = "Horror";
+22. select name as full_name from staff_list where ID = 1;
+23. select film.title from film inner join film_actor on film.film_id = film_actor.film_id inner join actor on film_actor.actor_id = actor.actor_id  where actor.first_name = "Fred" and actor.last_name = "Costner";
+24. select store_id from inventory inner join film on inventory.film_id = film.film_id where film.title = "BUCKET BROTHERHOOD" group by inventory.store_id order by count(inventory.store_id) Desc;
+25. select count(distinct country) from country;
+25b. select count(distinct name) from language;
+26. select first_name, last_name from actor where last_name like "%son%" order by first_name;
+27. select category.name, film.title from film inner join film_category on film.film_id = film_category.film_id inner join category on film_category.film_id = category.category_id group by category.name order by film.title;
+# 27 is wrong but can't quite figure it out with the time left
+28. 
+29. select film_actor.actor_id, actor.first_name, actor.last_name from film_actor inner join actor on film_actor.actor_id = actor.actor_id group by film_actor.actor_id order by count(*) desc limit 1;
+
+
